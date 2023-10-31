@@ -4,17 +4,64 @@
  */
 package com.mycompany.projetoii;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.ButtonGroup;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 /**
  *
  * @author baldu
  */
 public class TeladeVendass extends javax.swing.JFrame {
-
+    private ButtonGroup buttonGroup;
     /**
      * Creates new form TeladeVendass
      */
     public TeladeVendass() {
         initComponents();
+        
+        buttonGroup = new ButtonGroup();
+        buttonGroup.add(JRBTabuleiro);
+        buttonGroup.add(JRBMontardesmonta);
+        buttonGroup.add(JRBsons);
+        
+     
+        JRBTabuleiro.addItemListener(new ItemListener(){
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    JTBBancoImobiliario.setSelected(true);
+                    JTBBlocosdeMontar.setSelected(false);
+                    JTBXilofone.setSelected(false);
+                }
+            }
+        });
+        
+        JRBMontardesmonta.addItemListener(new ItemListener(){
+             @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED){
+                    JTBBancoImobiliario.setSelected(false);
+                    JTBBlocosdeMontar.setSelected(true);
+                    JTBXilofone.setSelected(false);
+                }
+            }
+        });
+        
+        JRBsons.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    JTBBancoImobiliario.setSelected(false);
+                    JTBBlocosdeMontar.setSelected(false);
+                    JTBXilofone.setSelected(true);
+                }
+            }
+        });
+      
+        
     }
 
     /**
@@ -261,7 +308,7 @@ public class TeladeVendass extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void JTBXilofoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTBXilofoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTBXilofoneActionPerformed

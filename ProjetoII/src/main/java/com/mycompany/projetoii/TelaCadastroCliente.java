@@ -4,6 +4,7 @@
  */
 package com.mycompany.projetoii;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
 /**
@@ -166,6 +167,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
         jbSalvar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jbSalvar.setText("Salvar");
+        jbSalvar.setEnabled(false);
         jbSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalvarActionPerformed(evt);
@@ -356,8 +358,69 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void checkFieldsAndEnableSaveButton() {
+        String nome = jtfNome.getText();
+        String email = jtfEmail.getText();
+        String telefone = jtfTelefone.getText();
+        
+        boolean isNomeValid = nome.length() >= 8;
+        boolean isEmailValid = isValidEmail(email);
+        boolean isTelefoneValid = !telefone.isEmpty();
+        
+        
+        jbSalvar.setEnabled(isNomeValid && isEmailValid && isTelefoneValid);
+    }
+    
+    private boolean isValidEmail(String email) {
+        String emailPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
+        
+        if(email.matches(emailPattern)) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+    
+    
+    private void jbSalvarActionPerfomed(java.awt.event.ActionEvent evt) {
+        String nome = jtfNome.getText();
+        String email = jtfEmail.getText();
+        String telefone = jtfTelefone.getText();
+        
+        if (jbSalvar.isEnabled()) {
+            IsValidNome(nome);
+        }else {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente antes de salvar.");
+        }
+    }
+    
+    private void jtfNomeActionPerfomed(java.awt.event.ActionEvent evt) {
+        checkFieldsAndEnableSaveButton();
+    }
+    
+    private void jtfEmailActionPerfomed(java.awt.event.ActionEvent evt) {
+        String email = jtfEmail.getText();
+        
+        if (isValidEmail(email)) {
+            
+        }else {
+            JOptionPane.showMessageDialog(null,"E-mail inválido. Insira um e-mail válido.");
+        }
+        
+        checkFieldsAndEnableSaveButton();
+    }
+    
+    private void jtfTelefoneActionPerfomed(java.awt.event.ActionEvent evt) {
+        checkFieldsAndEnableSaveButton();
+    }
+    
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(jRadioButton1);
+        buttonGroup.add(jRadioButton2);
+        
+        jRadioButton1.setSelected(true);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed

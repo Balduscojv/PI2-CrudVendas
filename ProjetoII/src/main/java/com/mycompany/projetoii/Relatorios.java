@@ -4,6 +4,8 @@
  */
 package com.mycompany.projetoii;
 
+import javax.swing.ButtonGroup;
+
 /**
  *
  * @author baldu
@@ -265,9 +267,12 @@ public class Relatorios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jrbSinteticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbSinteticoActionPerformed
-        // TODO add your handling code here:
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(jrbSintetico);
+        buttonGroup.add(jbrAnalitico);
+       
     }//GEN-LAST:event_jrbSinteticoActionPerformed
 
     private void jbrAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbrAnaliticoActionPerformed
