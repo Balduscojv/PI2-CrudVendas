@@ -163,6 +163,11 @@ public class Relatorios extends javax.swing.JFrame {
         jbVisualizar.setText("Visualizar");
 
         jbfechar.setText("Fechar");
+        jbfechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbfecharActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -286,6 +291,12 @@ public class Relatorios extends javax.swing.JFrame {
     private void jtfDatainicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfDatainicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfDatainicioActionPerformed
+
+    private void jbfecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbfecharActionPerformed
+        TelaPrincipal Tp = new TelaPrincipal();
+       Tp.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jbfecharActionPerformed
 
     /**
      * @param args the command line arguments

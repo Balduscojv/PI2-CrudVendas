@@ -4,6 +4,9 @@
  */
 package com.mycompany.projetoii;
 
+import java.time.Clock;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author baldu
@@ -40,6 +43,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gestão de Loja");
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -73,6 +77,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jbtSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sair40.png"))); // NOI18N
         jbtSair.setText("Sair");
+        jbtSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtSairActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbtSair);
 
         jMenu1.setText("Menu");
@@ -120,20 +129,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+    
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jbtCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtCadastroActionPerformed
-        // TODO add your handling code here:
+       TelaCadastroCliente Tcc = new TelaCadastroCliente();
+       Tcc.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_jbtCadastroActionPerformed
 
     private void jbtVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtVendasActionPerformed
-        // TODO add your handling code here:
+     TeladeVendass Tv = new TeladeVendass();
+       Tv.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_jbtVendasActionPerformed
 
     private void jbtRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtRelatoriosActionPerformed
-        // TODO add your handling code here:
+        Relatorios Rl = new Relatorios();
+       Rl.setVisible(true);
+       this.dispose();
     }//GEN-LAST:event_jbtRelatoriosActionPerformed
+
+    private void jbtSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtSairActionPerformed
+         JOptionPane.showMessageDialog(null, "O aplicativo será encerrado");
+         System.exit(0);
+    }//GEN-LAST:event_jbtSairActionPerformed
 
     /**
      * @param args the command line arguments
