@@ -81,13 +81,14 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelImagemProduto" alignment="0" min="-2" pref="297" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="jLabelImagemProduto" min="-2" pref="297" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                          <Component id="jLabelAlterarImagem" min="-2" pref="91" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
+                          <Component id="jButtonAlterarImagem" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="48" max="32767" attributes="0"/>
@@ -146,7 +147,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabelImagemProduto" min="-2" pref="308" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabelAlterarImagem" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAlterarImagem" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="33" max="32767" attributes="0"/>
@@ -218,11 +219,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextPrecoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelAlterarImagem">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Alterar Imagem"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="jButtonSalvar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Salvar"/>
@@ -245,6 +241,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimparActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonAlterarImagem">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Alterar imagem "/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAlterarImagemActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

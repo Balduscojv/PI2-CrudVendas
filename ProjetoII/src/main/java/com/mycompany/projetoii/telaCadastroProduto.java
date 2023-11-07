@@ -50,10 +50,10 @@ public class telaCadastroProduto extends javax.swing.JFrame {
         jTextQuantidade = new javax.swing.JTextField();
         jLabelQuantidade = new javax.swing.JLabel();
         jTextPreco = new javax.swing.JTextField();
-        jLabelAlterarImagem = new javax.swing.JLabel();
         jButtonSalvar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonLimpar = new javax.swing.JButton();
+        jButtonAlterarImagem = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -117,8 +117,6 @@ public class telaCadastroProduto extends javax.swing.JFrame {
             }
         });
 
-        jLabelAlterarImagem.setText("Alterar Imagem");
-
         jButtonSalvar.setText("Salvar");
         jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,18 +138,25 @@ public class telaCadastroProduto extends javax.swing.JFrame {
             }
         });
 
+        jButtonAlterarImagem.setText("Alterar imagem ");
+        jButtonAlterarImagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarImagemActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelImagemProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabelAlterarImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(103, 103, 103)))
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabelImagemProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(jButtonAlterarImagem)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -201,7 +206,7 @@ public class telaCadastroProduto extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabelImagemProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelAlterarImagem)))
+                        .addComponent(jButtonAlterarImagem)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -255,6 +260,10 @@ public class telaCadastroProduto extends javax.swing.JFrame {
         jTextQuantidade.setText("");
     }//GEN-LAST:event_jButtonLimparActionPerformed
 
+    private void jButtonAlterarImagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarImagemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAlterarImagemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -291,11 +300,11 @@ public class telaCadastroProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAlterarImagem;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonLimpar;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabelAlterarImagem;
     private javax.swing.JLabel jLabelDescricao;
     private javax.swing.JLabel jLabelImagemProduto;
     private javax.swing.JLabel jLabelNome;
