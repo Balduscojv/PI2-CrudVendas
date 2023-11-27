@@ -367,7 +367,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkFieldsAndEnableSaveButton() {
-        String nome = jtfNome.getText();
+        String nome = jtfNome.getTextS();
         String email = jtfEmail.getText();
         String telefone = jtfTelefone.getText();
         
@@ -444,7 +444,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfTelefoneActionPerformed
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
-        // TODO add your handling code here:
+        
         String nome = jtfNome.getText();
        
         IsValidNome(nome);

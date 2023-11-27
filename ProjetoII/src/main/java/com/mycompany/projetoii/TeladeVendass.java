@@ -190,6 +190,11 @@ public class TeladeVendass extends javax.swing.JFrame {
 
         JBAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-adição-20.png"))); // NOI18N
         JBAdicionar.setText("Adicionar ");
+        JBAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBAdicionarActionPerformed(evt);
+            }
+        });
 
         JTIdade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -260,7 +265,6 @@ public class TeladeVendass extends javax.swing.JFrame {
                                 .addComponent(JTBXilofone, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(77, 77, 77))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jbVoltar2)
                                 .addContainerGap())))
                     .addGroup(layout.createSequentialGroup()
@@ -368,6 +372,12 @@ public class TeladeVendass extends javax.swing.JFrame {
        Tp.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jbVoltar2ActionPerformed
+
+    private void JBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAdicionarActionPerformed
+        telaCadastroProduto Tcp = new telaCadastroProduto();
+       Tcp.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_JBAdicionarActionPerformed
 
     /**
      * @param args the command line arguments
