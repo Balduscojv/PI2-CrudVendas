@@ -4,6 +4,7 @@
  */
 package com.mycompany.projetoii;
 
+import DAO.ClienteDAO;
 import DTO.ClienteDTO;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
@@ -454,6 +455,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         objClienteDto.setTelefone(telefone);
         objClienteDto.setNascimento(nascimento);
         objClienteDto.setCpf(cpf);
+        
+        ClienteDAO objclientedao = new ClienteDAO();
+        objclientedao.cadastrarCliente(objClienteDto);
 
         //IsValidNome(nome);
 

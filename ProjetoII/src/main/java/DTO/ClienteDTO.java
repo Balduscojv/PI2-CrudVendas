@@ -10,7 +10,7 @@ public class ClienteDTO {
     private String nascimento;
     private String cpf;
     private String email;
-    private String sexo;
+    private String sexo =  "Masculino";
 
     /**
      * @return the Id_Cliente
