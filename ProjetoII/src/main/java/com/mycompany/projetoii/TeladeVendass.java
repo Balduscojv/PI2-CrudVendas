@@ -11,7 +11,9 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- *
+ *Tela de Vendas.
+ * 
+ * Esta tela permite aos usuários realizar transações de vendas, adicionando produtos ao carrinho e finalizando a compra.
  * @author baldu
  */
 public class TeladeVendass extends javax.swing.JFrame {

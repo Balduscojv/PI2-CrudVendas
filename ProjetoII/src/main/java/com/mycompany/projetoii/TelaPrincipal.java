@@ -8,7 +8,11 @@ import java.time.Clock;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Tela Principal da Aplicação.
+ * 
+ * Esta tela serve como o ponto central da aplicação, fornecendo acesso às principais funcionalidades e módulos.
+ * Inclui uma barra de menu, barra de ferramentas e áreas dedicadas para exibição de informações importantes.
+ * 
  * @author baldu
  */
 public class TelaPrincipal extends javax.swing.JFrame {

@@ -13,6 +13,11 @@ import javax.swing.ButtonGroup;
 public class Relatorios extends javax.swing.JFrame {
 
     /**
+     * Tela de Relatórios.
+     * 
+     * Esta tela permite aos usuários gerar vários tipos de relatórios com base em diferentes parâmetros e critérios.
+     * Os relatórios podem ser exportados em vários formatos e configurados de acordo com as necessidades do usuário.
+     * 
      * Creates new form Relatorios
      */
     public Relatorios() {
