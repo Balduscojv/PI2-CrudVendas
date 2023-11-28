@@ -6,8 +6,11 @@ package com.mycompany.projetoii;
 
 import DAO.ClienteDAO;
 import DTO.ClienteDTO;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -28,6 +31,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     public TelaCadastroCliente() {
         initComponents();
+        listarValores();
     }
 
     /**
@@ -41,6 +45,8 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jpClienteCadastro = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -56,13 +62,13 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jbSalvar = new javax.swing.JButton();
         jbExcluir = new javax.swing.JButton();
-        JtfPesquisar = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jbPesquisar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jtCadastro = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jtfCpf = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -81,6 +87,19 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(jTable1);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Cliente");
@@ -184,6 +203,14 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-lupa-20.png"))); // NOI18N
 
+        jbPesquisar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jbPesquisar.setText("Pesquisar");
+        jbPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbPesquisarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -193,65 +220,53 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 .addComponent(jbSalvar)
                 .addGap(18, 18, 18)
                 .addComponent(jbExcluir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 393, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(49, 49, 49)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JtfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addComponent(jbPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jbPesquisar)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jbExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JtfPesquisar)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jtCadastro.setModel(new javax.swing.table.DefaultTableModel(
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Nome", "Telefone", "Email", "Sexo", "CPF", "Data de Nacimento"
+                "id_cliente", "Nome", "Telefone", "Nascimento", "Email", "Sexo"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane3.setViewportView(jtCadastro);
+        ));
+        jScrollPane5.setViewportView(jTable3);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 129, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel4);
@@ -455,7 +470,7 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         objClienteDto.setTelefone(telefone);
         objClienteDto.setNascimento(nascimento);
         objClienteDto.setCpf(cpf);
-        
+
         ClienteDAO objclientedao = new ClienteDAO();
         objclientedao.cadastrarCliente(objClienteDto);
 
@@ -480,6 +495,10 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         Tp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JbVoltar1ActionPerformed
+
+    private void jbPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarActionPerformed
+       listarValores();
+    }//GEN-LAST:event_jbPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -526,7 +545,6 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JbVoltar1;
-    private javax.swing.JTextField JtfPesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -543,16 +561,47 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JButton jbExcluir;
+    private javax.swing.JButton jbPesquisar;
     private javax.swing.JButton jbSalvar;
     private javax.swing.JPanel jpClienteCadastro;
-    private javax.swing.JTable jtCadastro;
     private javax.swing.JTextField jtfCpf;
     private javax.swing.JTextField jtfEmail;
     private javax.swing.JTextField jtfNascimento;
     private javax.swing.JTextField jtfNome;
     private javax.swing.JTextField jtfTelefone;
     // End of variables declaration//GEN-END:variables
+
+    private void listarValores() {
+
+        try {
+            ClienteDAO objClienteDAO = new ClienteDAO();
+
+            DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+            model.setNumRows(0);
+
+            ArrayList<ClienteDTO> lista = objClienteDAO.PesquisarCliente();
+
+            for (int num = 0; num < lista.size(); num++) {
+                model.addRow(new Object[]{
+                    lista.get(num).getId_Cliente(),
+                    lista.get(num).getNome_usuario(),
+                    lista.get(num).getTelefone(),
+                    lista.get(num).getNascimento(),
+                    lista.get(num).getCpf(),
+                    lista.get(num).getEmail(),
+                    lista.get(num).getSexo()
+                });
+            }
+
+        } catch (Exception erro) {
+            JOptionPane.showConfirmDialog(null, "Listar Valores tela: " + erro);
+        }
+    }
+
 }
