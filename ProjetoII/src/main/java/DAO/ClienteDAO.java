@@ -19,7 +19,7 @@ public class ClienteDAO {
     ResultSet rs;
     ArrayList<ClienteDTO> lista = new ArrayList<>();
 
-    public void cadastrarCliente(ClienteDTO objclientedto) {
+    public void cadastrarCliente(ClienteDTO objclientedto) throws SQLException {
         String sql = "insert into cadcliente (nome, telefone, nascimento, cpf, email, sexo) values (?, ?, ?, ?, ?, ?)";
 
         conn = new ConexaoDAO().conectaBD();
@@ -36,15 +36,35 @@ public class ClienteDAO {
 
             pstm.execute();
             pstm.close();
-
-        } catch (Exception erro) {
-
+            
+        } catch (SQLException erro){
+            
             JOptionPane.showConfirmDialog(null, "ClienteDAO" + erro);
+            
+            
+              /**
+     * Tela de Cadastramento de Cliente.
+     * 
+     * Esta tela permite aos usuários cadastrar novos clientes no sistema.
+     * Os dados inseridos são validados e, em caso de sucesso, o cliente é adicionado ao banco de dados.
+     * 
+     * @param objclientedto 
+     */    /**
+     * Tela de Cadastramento de Cliente.
+     * 
+     * Esta tela permite aos usuários cadastrar novos clientes no sistema.
+     * Os dados inseridos são validados e, em caso de sucesso, o cliente é adicionado ao banco de dados.
+     * 
+     * @param objclientedto 
+     */
 
+    /**
+     * Tela de Cadastramento de Cliente.Esta tela permite aos usuários cadastrar novos clientes no sistema.Os dados inseridos são validados e, em caso de sucesso, o cliente é adicionado ao banco de dados.
+     */
         }
     }
 
-    public ArrayList<ClienteDTO> PesquisarCliente() {
+      public ArrayList<ClienteDTO> PesquisarCliente() {
         String sql = "select * from cadcliente";
         conn = new ConexaoDAO().conectaBD();
 
@@ -70,6 +90,13 @@ public class ClienteDAO {
         }
 
         return lista;
-    }
+}
 
 }
+
+
+  
+  
+    
+
+

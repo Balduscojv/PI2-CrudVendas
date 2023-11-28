@@ -11,7 +11,14 @@ import javax.swing.JOptionPane;
  * @author baldu
  */
 public class ConexaoDAO {
-    
+    /**
+     * Tela de Conexão com o Banco de Dados.
+     * 
+     * Esta tela é responsável por estabelecer e gerenciar a conexão com o banco de dados da aplicação.
+     * Ela fornece métodos para executar consultas, atualizações e outras operações no banco de dados.
+     * 
+     * @return 
+     */
     public Connection conectaBD(){
         Connection conn = null;
         

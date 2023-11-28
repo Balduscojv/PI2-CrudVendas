@@ -5,7 +5,9 @@
 package com.mycompany.projetoii;
 import javax.swing.JOptionPane;
 /**
- *
+ * Tela de Cadastro de Produtos.
+ * 
+ * Esta tela permite aos usuários cadastrar novos produtos no sistema.
  * @author lucas
  * @author bruno
  */

@@ -8,6 +8,8 @@ import DAO.ClienteDAO;
 import DTO.ClienteDTO;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -28,7 +30,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "O nome foi Salvo");
         }
     }
-
+/**
+ * 
+ */
     public TelaCadastroCliente() {
         initComponents();
         listarValores();
@@ -472,14 +476,18 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         objClienteDto.setCpf(cpf);
 
         ClienteDAO objclientedao = new ClienteDAO();
-        objclientedao.cadastrarCliente(objClienteDto);
-
-        //IsValidNome(nome);
+        try {
+            objclientedao.cadastrarCliente(objClienteDto);
+            
+            //IsValidNome(nome);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jtfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEmailActionPerformed
