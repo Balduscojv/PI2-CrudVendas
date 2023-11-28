@@ -4,6 +4,7 @@
  */
 package com.mycompany.projetoii;
 
+import DTO.ClienteDTO;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
@@ -16,14 +17,13 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     /**
      * Creates new form TelaCadastroCliente
      */
-    private void IsValidNome(String nome){
-        if (nome.length() >= 8 || nome.length() == 0){
+    private void IsValidNome(String nome) {
+        if (nome.length() >= 8 || nome.length() == 0) {
             JOptionPane.showMessageDialog(null, "Digite seu nome!");
-        }else {
-            JOptionPane.showMessageDialog(null, "O nome foi Salvo"); 
+        } else {
+            JOptionPane.showMessageDialog(null, "O nome foi Salvo");
         }
     }
-    
 
     public TelaCadastroCliente() {
         initComponents();
@@ -38,7 +38,6 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jpClienteCadastro = new javax.swing.JPanel();
@@ -64,9 +63,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jtCadastro = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jtfCpf = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jtfNascimento = new javax.swing.JTextField();
         JbVoltar1 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -168,7 +167,6 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
 
         jbSalvar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jbSalvar.setText("Salvar");
-        jbSalvar.setEnabled(false);
         jbSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalvarActionPerformed(evt);
@@ -260,9 +258,9 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel8.setText("CPF");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jtfCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jtfCpfActionPerformed(evt);
             }
         });
 
@@ -293,12 +291,12 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel9)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jtfNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(162, 162, 162)
                                 .addGroup(jpClienteCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel8)))
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -332,8 +330,8 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jpClienteCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtfNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -367,67 +365,65 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkFieldsAndEnableSaveButton() {
-        String nome = jtfNome.getTextS();
+        String nome = jtfNome.getText();
         String email = jtfEmail.getText();
         String telefone = jtfTelefone.getText();
-        
+
         boolean isNomeValid = nome.length() >= 8;
         boolean isEmailValid = isValidEmail(email);
         boolean isTelefoneValid = !telefone.isEmpty();
-        
-        
+
         jbSalvar.setEnabled(isNomeValid && isEmailValid && isTelefoneValid);
     }
-    
+
     private boolean isValidEmail(String email) {
         String emailPattern = "^[A-Za-z0-9+_.-]+@(.+)$";
-        
-        if(email.matches(emailPattern)) {
+
+        if (email.matches(emailPattern)) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
-    
-    
+
     private void jbSalvarActionPerfomed(java.awt.event.ActionEvent evt) {
         String nome = jtfNome.getText();
         String email = jtfEmail.getText();
         String telefone = jtfTelefone.getText();
-        
+
         if (jbSalvar.isEnabled()) {
             IsValidNome(nome);
-        }else {
+        } else {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente antes de salvar.");
         }
     }
-    
+
     private void jtfNomeActionPerfomed(java.awt.event.ActionEvent evt) {
         checkFieldsAndEnableSaveButton();
     }
-    
+
     private void jtfEmailActionPerfomed(java.awt.event.ActionEvent evt) {
         String email = jtfEmail.getText();
-        
+
         if (isValidEmail(email)) {
-            
-        }else {
-            JOptionPane.showMessageDialog(null,"E-mail inválido. Insira um e-mail válido.");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "E-mail inválido. Insira um e-mail válido.");
         }
-        
+
         checkFieldsAndEnableSaveButton();
     }
-    
+
     private void jtfTelefoneActionPerfomed(java.awt.event.ActionEvent evt) {
         checkFieldsAndEnableSaveButton();
     }
-    
+
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(jRadioButton1);
         buttonGroup.add(jRadioButton2);
-        
+
         jRadioButton1.setSelected(true);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
@@ -444,11 +440,23 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfTelefoneActionPerformed
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
-        
+
         String nome = jtfNome.getText();
-       
-        IsValidNome(nome);
-      
+        String email = jtfEmail.getText();
+        String telefone = jtfTelefone.getText();
+        String nascimento = jtfNascimento.getText();
+        String cpf = jtfCpf.getText();
+        //String sexo;
+
+        ClienteDTO objClienteDto = new ClienteDTO();
+        objClienteDto.setNome_usuario(nome);
+        objClienteDto.setEmail(email);
+        objClienteDto.setTelefone(telefone);
+        objClienteDto.setNascimento(nascimento);
+        objClienteDto.setCpf(cpf);
+
+        //IsValidNome(nome);
+
     }//GEN-LAST:event_jbSalvarActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
@@ -459,14 +467,14 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfEmailActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jtfCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCpfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jtfCpfActionPerformed
 
     private void JbVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbVoltar1ActionPerformed
         TelaPrincipal Tp = new TelaPrincipal();
-       Tp.setVisible(true);
-       this.dispose();
+        Tp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_JbVoltar1ActionPerformed
 
     /**
@@ -483,16 +491,24 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroCliente.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroCliente.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroCliente.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCadastroCliente.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -507,7 +523,6 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JbVoltar1;
     private javax.swing.JTextField JtfPesquisar;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -526,13 +541,13 @@ public class TelaCadastroCliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton jbExcluir;
     private javax.swing.JButton jbSalvar;
     private javax.swing.JPanel jpClienteCadastro;
     private javax.swing.JTable jtCadastro;
+    private javax.swing.JTextField jtfCpf;
     private javax.swing.JTextField jtfEmail;
+    private javax.swing.JTextField jtfNascimento;
     private javax.swing.JTextField jtfNome;
     private javax.swing.JTextField jtfTelefone;
     // End of variables declaration//GEN-END:variables
