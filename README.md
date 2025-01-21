@@ -1,5 +1,4 @@
-# PI2-CrudVendas
-Projeto Integrador 2° Semestre 2023 - Aplicação Desktop em java 
+Projeto Aplicação Desktop
 
 
 ## Projeto
